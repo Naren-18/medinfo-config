@@ -1,5 +1,35 @@
 server:
   port: 8081
 
-test:
-  message: Hello Config Server
+spring:
+  datasource:
+    url: jdbc:postgresql://ep-green-brook-at8hrajg-pooler.c-9.us-east-1.aws.neon.tech/auth_db?sslmode=require&channelBinding=require
+    username: neondb_owner
+    password: npg_gASOj1DN6Bha
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    show-sql: true
+
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+    properties:
+      hibernate:
+        format_sql: true
+
+jwt:
+  secret: ThisIsMyVeryLongSecretKeyForMedInfoProject123456789
+  expiration: 900000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+  instance:
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
