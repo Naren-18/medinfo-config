@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://ep-green-brook-at8hrajg-pooler.c-9.us-east-1.aws.neon.tech/audit-db?sslmode=require&channelBinding=require
-    username: neondb_owner
-    password: npg_gASOj1DN6Bha
+    url: ${AUDIT_DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
 
   jpa:
     hibernate:
