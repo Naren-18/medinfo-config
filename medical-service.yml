@@ -36,7 +36,7 @@ jwt:
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka-server:8761/eureka
+      defaultZone: ${EUREKA_URL}
     register-with-eureka: true
     fetch-registry: true
 
