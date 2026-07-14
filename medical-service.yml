@@ -20,11 +20,11 @@ spring:
         format_sql: true
 
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: kafka:9092
 
   data:
     redis:
-      host: localhost
+      host: redis
       port: 6379
 
 jwt:
@@ -34,10 +34,9 @@ jwt:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://eureka-server:8761/eureka
     register-with-eureka: true
     fetch-registry: true
 
   instance:
-    ip-address: 127.0.0.1
-    prefer-ip-address: true
+    prefer-ip-address: false
