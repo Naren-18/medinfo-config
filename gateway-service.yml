@@ -7,7 +7,6 @@ spring:
       server:
         webflux:
           routes:
-
             - id: auth-service
               uri: lb://AUTH-SERVICE
               predicates:
@@ -24,6 +23,10 @@ eureka:
       defaultZone: ${EUREKA_URL}
     register-with-eureka: true
     fetch-registry: true
+
+  instance:
+    hostname: ${RAILWAY_PRIVATE_DOMAIN}
+    prefer-ip-address: false
 
 management:
   endpoints:
