@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://ep-green-brook-at8hrajg-pooler.c-9.us-east-1.aws.neon.tech/auth_db?sslmode=require&channelBinding=require
-    username: neondb_owner
-    password: npg_gASOj1DN6Bha
+    url: ${AUTH_DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
 
   jpa:
     hibernate:
@@ -20,16 +20,25 @@ spring:
         format_sql: true
 
 jwt:
-  secret: ThisIsMyVeryLongSecretKeyForMedInfoProject123456789
-  expiration: 900000
+  secret: ${JWT_SECRET}
+  expiration: ${JWT_EXPIRATION}
 
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: ${EUREKA_URL}
     register-with-eureka: true
     fetch-registry: true
 
   instance:
-    ip-address: 127.0.0.1
-    prefer-ip-address: true
+    prefer-ip-address: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+  endpoint:
+    health:
+      show-details: always
