@@ -42,6 +42,10 @@ eureka:
     fetch-registry: true
 
   instance:
+    hostname: ${RAILWAY_PRIVATE_DOMAIN}
+    prefer-ip-address: false
+
+  instance:
     prefer-ip-address: false
 
 management:
