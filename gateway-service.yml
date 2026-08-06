@@ -16,7 +16,7 @@ spring:
             - id: medical-service
               uri: lb://MEDICAL-SERVICE
               predicates:
-                - Path=/api/profile/**,/api/contacts/**,/api/emergency/**
+                - Path=/api/profile/**,/api/contacts/**,/api/emergency/**,/api/reports/**
 
 eureka:
   client:
