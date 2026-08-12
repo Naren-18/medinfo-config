@@ -37,7 +37,13 @@ jwt:
 ai:
   provider: ${AI_PROVIDER:gemini}
 
-# Used only when ai.provider=openai-compatible. Works for any provider that
+# ai.provider picks the PRIMARY provider. Both Gemini and the openai-compatible
+# provider (below) are always active — FallbackAiSummaryService automatically
+# tries whichever one isn't primary if the primary fails.
+gemini:
+  model: ${GEMINI_MODEL:gemini-3.1-flash-lite}
+
+# Works for any provider that
 # implements the OpenAI Chat Completions API — Groq and OpenAI both do.
 # Switching provider is a config change here, not a code change:
 #   Groq:   base-url=https://api.groq.com/openai/v1/chat/completions   model=llama-3.3-70b-versatile
